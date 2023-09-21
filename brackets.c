@@ -1,17 +1,20 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
-
-#define limitation 10
+#include <string.h>
 
 int main()
 {
-    char string[11];
-    printf("Enter 10 brackets for the bracket string ");
-    fgets(string, 11, stdin);
+    char string[100] = "0";
+    printf("Enter string ");
+    fgets(string, 99, stdin);
     int counter = 0;
+    int limitation = strlen(string);
     for (int symbolNumber = 0; symbolNumber < limitation; ++symbolNumber)
     {
-        counter = string[symbolNumber] == '(' ? ++counter : --counter;
+        if ((string[symbolNumber] == '(') || (string[symbolNumber] == ')'))
+        {
+            string[symbolNumber] == '(' ? ++counter : --counter;
+        }
         if (counter < 0)
         {
             break;
